@@ -303,6 +303,9 @@ class PShape:
 
 
 class PVector:
+    x: float = ...
+    y: float = ...
+
     @overload
     def __init__(self, x: float, y: float): ...
 
@@ -330,7 +333,6 @@ class PVector:
     def random3D() -> PVector: ...
 
     @staticmethod
-    @overload
     def fromAngle(angle: float) -> PVector: ...
 
     def copy(self) -> PVector: ...
@@ -991,15 +993,15 @@ def shearY(angle: float) -> None: ...
 
 
 @overload
-def translate() -> None: ...
-
-
-@overload
 def translate(x: float, y: float) -> None: ...
 
 
 @overload
 def translate(x: float, y: float, z: float) -> None: ...
+
+
+@overload
+def translate() -> None: ...
 
 
 # Lights, Camera - Lights
